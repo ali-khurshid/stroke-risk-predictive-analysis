@@ -26,9 +26,9 @@ Navigate using the sidebar to explore different sections of the app.
  - **Developed by:** Ali Khurshid.
     - **Data Source:** [Stroke Prediction Dataset](https://www.kaggle.com/datasets/fedesoriano/stroke-prediction-dataset)
     - **Home** - Project Overview and insights
-    - **EDA** - Exploratory Data Analysis
+    - **Data EDA** - Exploratory Data Analysis
+    - **Feature Engineering** - Data preprocessing and feature engineering steps
     - **Stroke Prediction Calculator** - Predict your risk of stroke
-    - **Model Details** - Information about the predictive model
     - ** Model Performance** - Evaluation metrics and performance analysis
 """)
 
