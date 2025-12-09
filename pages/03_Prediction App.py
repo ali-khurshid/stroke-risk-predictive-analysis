@@ -102,11 +102,11 @@ if st.button("Predict Stroke Risk"):
     # -------------------- Recommendations -------------------- #
     with st.expander("💡 Recommendations / Advice"):
         if probability >= 0.25:
-            st.warning("⚠ Very High Risk — Medical consultation recommended.")
+            st.warning("🚨 High Risk — Medical consultation recommended.")
         elif probability < 0.25 and probability >= 0.10:
-            st.info("Moderate risk — Consider lifestyle improvements and monitoring.")
+            st.info("⚠️ Moderate risk — Consider lifestyle improvements and monitoring.")
         else:
-            st.success("Low risk — Maintain healthy habits.")
+            st.success(" ✅ Low risk — Maintain healthy habits.")
 
 # -------------------- Show Input Data -------------------- #
 st.write("### 🤒 Patient Input Data")
