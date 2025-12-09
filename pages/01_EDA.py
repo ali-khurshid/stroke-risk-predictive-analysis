@@ -151,6 +151,7 @@ with tab4:
 with tab5:
     st.subheader("Correlation Between Numerical Features")
 
+    numeric_cols_no_target = [col for col in numeric_cols if col != 'stroke']
     corr = df[numeric_cols + ["stroke"]].corr()
 
     fig, ax = plt.subplots(figsize=(8,6))
