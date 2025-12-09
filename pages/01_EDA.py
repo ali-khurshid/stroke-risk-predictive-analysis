@@ -151,11 +151,32 @@ with tab4:
 with tab5:
     st.subheader("Correlation Between Numerical Features")
 
-    numeric_cols_no_target = [col for col in numeric_cols if col != 'stroke']
-    corr = df[numeric_cols + ["stroke"]].corr()
+    numeric_cols_no_target = [col for col in numeric_cols if col not in ['stroke','id']]
+    corr = df[numeric_cols_no_target + ["stroke"]].corr()
 
     fig, ax = plt.subplots(figsize=(8,6))
     sns.heatmap(corr, annot=True, cmap="coolwarm", fmt=".2f", ax=ax)
     st.pyplot(fig)
 
     st.write("Correlations closer to **1** or **-1** show stronger relationships.")
+
+    st.subheader("🗣️Discussion")
+    st.write("""
+    From the correlation heatmap, we can observe that **Age** and **Average Glucose Level**
+    show the strongest positive relationship with stroke occurrence, meaning that as these
+    values increase, the likelihood of stroke also tends to increase.
+
+    On the other hand, features such as **BMI** show very weak or near-zero correlation,
+    suggesting that, based on this dataset alone, BMI has little linear relationship with
+    stroke risk.
+    """)
+
+    st.subheader("📝Notes")
+    st.write("""   
+    It is important to note that correlation does not imply direct causation, and weak
+    correlation does not mean the feature is unimportant — some machine learning models,
+    such as Random Forests, can capture **non-linear** patterns that correlation cannot reveal.
+
+    It is also important to note that grouped features may have a combined correlation to stroke occurence 
+    and that individual features may not seem correlated on their own.
+    """)
