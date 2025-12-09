@@ -19,7 +19,7 @@ preprocessor = pipeline.named_steps['preprocess']
 clf = pipeline.named_steps['clf']
 
 # -------------------- User Inputs in Columns -------------------- #
-st.header("Patient Information")
+st.header("🏥 Patient Information")
 col1, col2 = st.columns(2)
 
 with col1:
