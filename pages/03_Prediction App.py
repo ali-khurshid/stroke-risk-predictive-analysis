@@ -26,19 +26,21 @@ col1, col2 = st.columns(2)
 
 with col1:
     age = st.slider(
-        "Age",
-        min_value=NUM_RANGES["age"][0],
-        max_value=NUM_RANGES["age"][1],
-        value=st.session_state.get("age", (NUM_RANGES["age"][0] + NUM_RANGES["age"][1]) // 2),
-        key="age"
-    )
+    "Age",
+    min_value=int(NUM_RANGES["age"][0]),
+    max_value=int(NUM_RANGES["age"][1]),
+    value=int(st.session_state.get("age", (NUM_RANGES["age"][0] + NUM_RANGES["age"][1]) // 2)),
+    step=1,
+    key="age"
+)
     bmi = st.slider(
-        "BMI",
-        min_value=NUM_RANGES["bmi"][0],
-        max_value=NUM_RANGES["bmi"][1],
-        value=st.session_state.get("bmi", (NUM_RANGES["bmi"][0] + NUM_RANGES["bmi"][1]) // 2),
-        key="bmi"
-    )
+    "BMI",
+    min_value=int(NUM_RANGES["bmi"][0]),
+    max_value=int(NUM_RANGES["bmi"][1]),
+    value=int(st.session_state.get("bmi", (NUM_RANGES["bmi"][0] + NUM_RANGES["bmi"][1]) // 2)),
+    step=1,
+    key="bmi"
+)
     gender = st.selectbox(
         "Gender",
         CAT_RANGES["gender"],
@@ -60,15 +62,16 @@ with col1:
 
 with col2:
     avg_glucose_level = st.slider(
-        "Average Glucose Level",
-        min_value=NUM_RANGES["avg_glucose_level"][0],
-        max_value=NUM_RANGES["avg_glucose_level"][1],
-        value=st.session_state.get(
-            "avg_glucose_level", 
-            (NUM_RANGES["avg_glucose_level"][0] + NUM_RANGES["avg_glucose_level"][1]) // 2
-        ),
-        key="avg_glucose_level"
-    )
+    "Average Glucose Level",
+    min_value=int(NUM_RANGES["avg_glucose_level"][0]),
+    max_value=int(NUM_RANGES["avg_glucose_level"][1]),
+    value=int(st.session_state.get(
+        "avg_glucose_level",
+        (NUM_RANGES["avg_glucose_level"][0] + NUM_RANGES["avg_glucose_level"][1]) // 2
+    )),
+    step=1,
+    key="avg_glucose_level"
+)
     hypertension = st.radio(
         "Hypertension",
         [0, 1],
@@ -98,6 +101,7 @@ with col2:
 
 # -------------------- Prepare Input DataFrame -------------------- #
 input_df = pd.DataFrame({
+    "id": [1],
     "age": [age],
     "avg_glucose_level": [avg_glucose_level],
     "bmi": [bmi],

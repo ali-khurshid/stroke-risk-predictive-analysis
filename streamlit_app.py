@@ -24,7 +24,7 @@ model = load_model()
 # --- Load and preprocess data ---
 @st.cache_data
 def load_data():
-    df = pd.read_parquet('data.parquet')
+    df = pd.read_parquet('Data/feature_engineered_stroke_data.parquet.')
     df = preprocess_input(df)  # apply your rounding/casting here
     return df
 
