@@ -9,7 +9,7 @@ def load_training_data():
     Loads the processed stroke dataset.
     Returns a pandas DataFrame.
     """
-    df = pd.read_parquet("Data/feature_engineered_stroke_data.parquet")
+    df = pd.read_parquet("..Data/feature_engineered_stroke_data.parquet")
     return df
 
 # -------------------- Numeric and Categorical Ranges -------------------- #
