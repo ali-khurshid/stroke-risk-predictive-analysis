@@ -1,45 +1,91 @@
-# ![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+![alt text](Images/readme_banner.png)
 
-# Project XYZ
+# Stroke Risk Predictive Analysis
 
-**Project XYZ** is a comprehensive data analysis tool designed to streamline data exploration, analysis, and visualisation. The tool supports multiple data formats and provides an intuitive interface for both novice and expert data scientists.
+Project bookmarks:
 
-# ![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+-   [README](https://github.com/kumuduuk/churn-crushers/blob/main/README.md)
+-   [Project board](https://github.com/users/kumuduuk/projects/3)
+-   [Raw Data](https://github.com/kumuduuk/churn-crushers/blob/main/data/raw_data/BankChurners.csv) | [Clean data](https://github.com/kumuduuk/churn-crushers/blob/main/data/cleaned_data/bankchurners.csv)
+-   [ETL Jupyter Notebook](https://github.com/kumuduuk/churn-crushers/blob/main/jupyter_notebooks/bankchurners.ipynb)
+-   [Streamlit](https://churn-crusher-dashboard.streamlit.app/)
+-   [Conclusion and discussion](#conclusion-and-discussion)
 
+## Contents:
+
+-   [Project Overview](#project-overview)
+-   [Dataset Content](#dataset-content)
+-   [Business Requirements](#business-requirements)
+-   [Hypothesis Testing and Validation](#hypothesis-testing-and-validation)
+-   [Rationale to map business requirements](#the-rationale-to-map-the-business-requirements-to-the-data-visualisations)
+-   [Analysis Techniques Used](#analysis-techniques-used)
+-   [Development Roadmap](#development-roadmap)
+-   [Libraries & External Software Used](#libraries--external-software-used)
+-   [Conclusion and discussion](#conclusion-and-discussion)
+-   [Limitations](#limitations-to-the-dataset)
+-   [Credits](#credits)
+-   [Acknowledgements](#acknowledgements)
+
+
+## Project Overview
+This project analyzes stroke risk factors in patients and provides visualizations and insights to guide preventative measures. I explored both numerical and categorical features to understand their relationship with stroke occurrences, performed hypothesis testing, and visualized distributions for key variables.
+
+---
 
 ## Dataset Content
-* Describe your dataset. Choose a dataset of reasonable size to avoid exceeding the repository's maximum size of 100Gb.
+The dataset contains patient records including demographic information, health indicators, and lifestyle factors. Key features include:
 
+- **Numerical:** `age`, `avg_glucose_level`, `bmi`
+- **Categorical:** `gender`, `hypertension`, `heart_disease`, `ever_married`, `work_type`, `residence_type`, `smoking_status`
+- **Target:** `stroke` (0 = no stroke, 1 = stroke)
+
+---
 
 ## Business Requirements
-* Describe your business requirements
+- Identify the features most associated with stroke risk.
+- Provide clear visualizations to support healthcare decision-making.
+- Ensure the analysis is reproducible and interpretable.
 
+---
 
-## Hypothesis and how to validate?
-* List here your project hypothesis(es) and how you envision validating it (them) 
+## Hypothesis Testing and Validation
+* List here your project hypothesis(es) and how you envision validating it (them)
+
+## The rationale to map the business requirements to the Data Visualisations
+- **Distributions** help identify patterns and potential outliers.
+- **Hypothesis testing tables** highlight which features are significantly associated with stroke.
+- **Categorical plots** provide clear counts for each subgroup, aiding interpretation for healthcare stakeholders.
+
+---
+
+## Analysis techniques used
+*  Descriptive statistics for numerical and categorical features
+- Data visualization using histograms, count plots, violinplots, pairplots, correlation heatmaps and boxplots
+- Hypothesis testing:
+  - T-test for numerical features
+  - Chi-square test for categorical features
 
 ## Project Plan
 * Outline the high-level steps taken for the analysis.
 * How was the data managed throughout the collection, processing, analysis and interpretation steps?
 * Why did you choose the research methodologies you used?
 
-## The rationale to map the business requirements to the Data Visualisations
-* List your business requirements and a rationale to map them to the Data Visualisations
+---
 
-## Analysis techniques used
-* List the data analysis methods used and explain limitations or alternative approaches.
-* How did you structure the data analysis techniques. Justify your response.
-* Did the data limit you, and did you use an alternative approach to meet these challenges?
-* How did you use generative AI tools to help with ideation, design thinking and code optimisation?
 
 ## Ethical considerations
-* Were there any data privacy, bias or fairness issues with the data?
-* How did you overcome any legal or societal issues?
+- Data anonymization: No personally identifiable information is used.
+- Bias awareness: Considered potential disparities across gender, age, and lifestyle factors.
+- Responsible reporting: Visualizations are intended for insight and educational purposes, not clinical decision-making.
 
-## Dashboard Design
-* List all dashboard pages and their content, either blocks of information or widgets, like buttons, checkboxes, images, or any other item that your dashboard library supports.
-* Later, during the project development, you may revisit your dashboard plan to update a given feature (for example, at the beginning of the project you were confident you would use a given plot to display an insight but subsequently you used another plot type).
-* How were data insights communicated to technical and non-technical audiences?
+---
+
+## Streamlit App
+* I created a Streamlit app to allow interactive exploration of features, distributions, and hypothesis test results. Users can filter by feature or subgroup to gain insights in a visual and intuitive format.
+
+(https://churn-crusher-dashboard.streamlit.app/)
+
+---
 * Explain how the dashboard was designed to communicate complex data insights to different audiences. 
 
 ## Unfixed Bugs
@@ -47,27 +93,29 @@
 * Did you recognise gaps in your knowledge, and how did you address them?
 * If applicable, include evidence of feedback received (from peers or instructors) and how it improved your approach or understanding.
 
+---
+
 ## Development Roadmap
 * What challenges did you face, and what strategies were used to overcome these challenges?
 * What new skills or tools do you plan to learn next based on your project experience? 
 
-## Deployment
-### Heroku
-
-* The App live link is: https://YOUR_APP_NAME.herokuapp.com/ 
-* Set the runtime.txt Python version to a [Heroku-20](https://devcenter.heroku.com/articles/python-support#supported-runtimes) stack currently supported version.
-* The project was deployed to Heroku using the following steps.
-
-1. Log in to Heroku and create an App
-2. From the Deploy tab, select GitHub as the deployment method.
-3. Select your repository name and click Search. Once it is found, click Connect.
-4. Select the branch you want to deploy, then click Deploy Branch.
-5. The deployment process should happen smoothly if all deployment files are fully functional. Click now the button Open App on the top of the page to access your App.
-6. If the slug size is too large then add large files not required for the app to the .slugignore file.
+---
 
 
 ## Main Data Analysis Libraries
 * Here you should list the libraries you used in the project and provide an example(s) of how you used these libraries.
+
+---
+
+## Conclusion and Discussion
+
+- **Age**, **avg_glucose_level**, and **bmi** show statistically significant differences between stroke and non-stroke groups.  
+- **Hypertension**, **heart_disease**, **ever_married**, and **smoking_status** are significantly associated with stroke incidence.  
+- Features such as **gender**, **work_type**, and **residence_type** showed less direct association with stroke in this dataset.  
+- The results suggest that **health indicators** (age, glucose level, BMI, hypertension, heart disease) are the most critical factors to monitor for stroke risk.  
+- These insights can guide targeted preventive measures and form the basis for further predictive modeling of stroke risk.
+
+---
 
 
 ## Credits 
