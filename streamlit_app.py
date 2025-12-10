@@ -1,6 +1,7 @@
 import streamlit as st
 import joblib
 import pandas as pd
+from helpers import preprocess_input,load_model
 
 # Main entry page for streamlit app
 
@@ -12,13 +13,23 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 
-#load and prepare data
-@st.cache_resource # Cache the model loading function to improve performance
-def load_data():
-    model = joblib.load('Model/final_stroke_prediction_model.pkl') # load the model
+# --- Load model ---
+@st.cache_resource
+def load_model():
+    model = joblib.load('Model/final_stroke_prediction_model.pkl')
     return model
 
+model = load_model()
+
+# --- Load and preprocess data ---
+@st.cache_data
+def load_data():
+    df = pd.read_parquet('data.parquet')
+    df = preprocess_input(df)  # apply your rounding/casting here
+    return df
+
 df = load_data()
+
 
 st.title("""
 🧠 Stroke Risk Prediction Application.
