@@ -148,14 +148,7 @@ if st.button("Predict Stroke Risk"):
         else:
             st.success("✅ Low risk — Maintain healthy habits.")
 
-    # -------------------- Optional: Show Preprocessed Input -------------------- #
-    st.write("### 🛠 Preprocessed Input")
-    preprocessed_df = pd.DataFrame(
-        X_transformed, 
-        columns=preprocessor.get_feature_names_out()
-    )
-    st.dataframe(preprocessed_df)
-
+   
 # -------------------- Show Input Data -------------------- #
 st.write("### 🤒 Patient Input Data")
 st.dataframe(input_df)
