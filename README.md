@@ -4,10 +4,13 @@
 
 Project bookmarks:
 
--   [README](https://github.com/kumuduuk/churn-crushers/blob/main/README.md)
--   [Project board](https://github.com/users/kumuduuk/projects/3)
--   [Raw Data](https://github.com/kumuduuk/churn-crushers/blob/main/data/raw_data/BankChurners.csv) | [Clean data](https://github.com/kumuduuk/churn-crushers/blob/main/data/cleaned_data/bankchurners.csv)
--   [ETL Jupyter Notebook](https://github.com/kumuduuk/churn-crushers/blob/main/jupyter_notebooks/bankchurners.ipynb)
+-   [README](https://github.com/ali-khurshid/stroke-risk-predictive-analysis/blob/main/README.md)
+-   [Project board](https://github.com/users/ali-khurshid/projects/7)
+-   [Raw Data](https://github.com/ali-khurshid/stroke-risk-predictive-analysis/blob/main/Data/raw-dataset-stroke-data.csv) | [Clean data](https://github.com/ali-khurshid/stroke-risk-predictive-analysis/blob/main/Data/cleaned_data.csv)
+-   [ETL Jupyter Notebook - EDA](https://github.com/ali-khurshid/stroke-risk-predictive-analysis/blob/main/jupyter_notebooks/01%20-%20stroke_eda.ipynb)
+-   [ETL Jupyter Notebook - Hypothesis Testing](https://github.com/ali-khurshid/stroke-risk-predictive-analysis/blob/main/jupyter_notebooks/02%20-%20hypothesis_testing.ipynb)
+-   [ETL Jupyter Notebook - Feature Engineering](https://github.com/ali-khurshid/stroke-risk-predictive-analysis/blob/main/jupyter_notebooks/03%20-%20feature_engineering_backup.ipynb)
+-   [ETL Jupyter Notebook - ML Modeling](https://github.com/ali-khurshid/stroke-risk-predictive-analysis/blob/main/jupyter_notebooks/04%20-%20modeling.ipynb)
 -   [Streamlit](https://churn-crusher-dashboard.streamlit.app/)
 -   [Conclusion and discussion](#conclusion-and-discussion)
 
