@@ -438,15 +438,12 @@ The model provides a foundation for a stroke risk prediction tool, useful for ra
 
 - ChatGPT helped me rephrase my englih and sentence construction in this document.
 - ChatGPT was used to help create code, debug errors and the block I encountered while deployed Streamlit.
-- Instructions on how to implement form validation on the Sign-Up page was taken from [Specific YouTube Tutorial](https://www.youtube.com/)
-- The icons in the footer were taken from [Font Awesome](https://fontawesome.com/)
+- Dataset downloaded from [Kaggle](https://www.kaggle.com/datasets).
 
 ### Media
 
-- The banner used for the home page was created by Microsoft co-pilot.
+- The banner used for this README was created by Microsoft co-pilot.
 - All charts and visualisations were created by Python coding.
-
-
 
 ## Acknowledgements
 
