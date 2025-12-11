@@ -236,14 +236,132 @@ To correct the imbalance SMOTE was applied to the training set only. This result
 
 3. **Logistic Regression Findings**
 
+Below is the performance of Logistic Regression.
+
+*Confusion Matrix*
+
+True negatives = 643
+
+True positives = 45
+
+False positives = 573
+
+False negatives = 17
+
+
+![alt text](Images/confusion_matrix_Log_Reg.png)
+
+*Classification report*
+
+The model achieves 53.8% accuracy, performing well on predicting no-stroke cases but struggling with stroke cases due to class imbalance. It correctly identifies most actual strokes (high recall) but also produces many false alarms (low precision). Overall, it highlights the challenge of predicting rare events and suggests that balancing the dataset or using alternative models could improve performance.
+
+**Motivation for Using Random Forest**
+
+Because this model predicted the majority class (no stroke) well but struggled with the minority class (stroke), I opted to switch to Random Forest, which better handles class imbalance and captures complex patterns in the data.
+
+Random Forest can manage skewed datasets more effectively, especially when combined with techniques like SMOTE or class weighting.
+
+Reduces overfitting: By averaging multiple decision trees, it generalizes better than a single classifier.
+
+Captures complex patterns: Stroke prediction involves non-linear relationships between features (age, BMI, heart conditions, etc.), which Random Forest handles well.
+
+Robust to noisy data: It can maintain performance even with irrelevant or correlated features.
+
+
+![alt text](Images/classfication_report_Log_Reg.png)
+
+- Accuracy: 53.8%
+
+- Stroke class (1) — Precision: 0.07, Recall: 0.73, F1-score: 0.13
+
+- Non-stroke class (0) — Precision: 0.97, Recall: 0.53, F1-score: 0.69
+
+- Insight: Captured most stroke cases (high recall) but produced many false positives (very low precision), overall performance limited by imbalance.
+
+![alt text](Images/roc_curve__Log_Reg.png)
+
+This model did not perform very well, owing to the fact that the imbalance of stroke class still existed despite correcting it with SMOTE. 
 
 4. **Random Forest Classifier Findings**
+
+*Confusion Matrix*
+
+True negatives = 1208
+
+True positives = 1
+
+False positives = 8
+
+False negatives = 61
+
+
+![alt text](Images/confusion_matrix_rf.png)
+
+Strongly predicts the majority class (no stroke) correctly.
+
+True positives for stroke dropped drastically (from 45 → 1), meaning it almost completely misses actual stroke cases.
+
+**Interpretation**
+
+Random Forest improved overall accuracy by predicting the majority class extremely well.
+
+However, it sacrificed detection of the minority class, highlighting that class imbalance still affects the model.
+
+This shows the need for additional techniques (e.g., SMOTE, class weighting, or tuning thresholds) to reliably predict stroke cases.
+
+![alt text](Images/classification_report_rf.png)
+
+- Accuracy: 95%
+
+- Stroke class (1) — Precision: 0.11, Recall: 0.02, F1-score: 0.03
+
+- Non-stroke class (0) — Precision: 0.95, Recall: 0.99, F1-score: 0.97
+
+- Insight: Strong overall accuracy and excellent prediction for the majority class, but almost completely misses stroke cases (very low recall for class 1).
+
+5. Tuning of hyperparameters of Random Forest.
+
+After hyperparameter tuning, the Random Forest model was optimized with:
+
+- `class_weight='balanced'` to address class imbalance
+
+- `max_depth=20`, `min_samples_split=2`, `min_samples_leaf=1`
+`n_estimators=200` for robust ensemble learning
+
+**Performance:**
+
+Accuracy: 90%, an improvement in overall reliability.
+
+Confusion Matrix shows strong prediction for the majority class (no stroke), but the minority class (stroke) is still under-predicted:
+
+![alt text](Images/final_confusion_matrix.png)
+
+- Stroke class (1) — Precision: 0.11, Recall: 0.16, F1-score: 0.13
+
+- Non-stroke class (0) — Precision: 0.96, Recall: 0.94, F1-score: 0.95
+
+- ROC AUC: 0.65, indicating moderate discriminatory ability between stroke and no-stroke classes.
+
+![alt text](Images/final_classification_report.png)
+
+![alt text](Images/final_roc_curve.png)
 
 
 ## Conclusion and Discussion
 
+Comparison & Rationale:
 
+Logistic Regression caught more actual stroke cases (higher recall) but misclassified many non-stroke cases, leading to low overall accuracy.
 
+Random Forest improves overall predictive stability and handles complex patterns better, which is valuable for a multi-feature dataset.
+
+Even though Random Forest currently underperforms on the minority class, it provides a strong foundation to combine with balancing techniques (e.g., SMOTE, class weighting) to improve stroke detection while maintaining robust overall accuracy.
+
+Class imbalance is the primary challenge; techniques like SMOTE, ensemble methods, or cost-sensitive learning could improve minority class performance.
+
+Feature engineering and incorporating additional relevant health data may further enhance predictive power.
+
+The model provides a foundation for a stroke risk prediction tool, useful for raising awareness or screening, but should be supplemented with clinical validation before real-world use.
 
 ---
 
