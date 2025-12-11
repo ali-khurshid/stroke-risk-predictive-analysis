@@ -162,6 +162,10 @@ The only two features that did not have any significant impact on the occurence 
 | Thursday        |  Hyperparameter Tuning and Prediction         |     Using best performance parameters for prediction    |
 | Friday          |  Streamlit and ReadME                         |            App creation, deployment and documentation   |
 
+**Project Board**
+
+![alt text](<Images/Project Board.jpg>)
+
 ---
 
 
@@ -186,10 +190,10 @@ You can access the app and explore here: https://capstone-ali-stroke-prediction.
 The app is a multi-paged dashboard consisting of:
 
 - **Overview** - A summary of the dataset and project tools used.
-- **EDA** - is made up of 5 tabs and discusses the raw data, numerical and categorical features, their importance and a correlation heatmap.
-- Feature Engineering - Shows how the raw data was cleaned, transformed and encoded to make it model-ready. It also talks about the Pipeline that was eventually built.
-- Prediction App - patient stroke risk calculator based on the available dataset.
-- Model Performance - looks into the performance of ML model and predictive capabilities.
+- **Data Analysis** - is made up of 5 tabs and discusses the raw data, numerical and categorical features, their importance and a correlation heatmap.
+- **Feature Engineering** - Shows how the raw data was cleaned, transformed and encoded to make it model-ready. It also talks about the Pipeline that was eventually built.
+- **Prediction App** - patient stroke risk calculator based on the available dataset.
+- **Model Performance** - looks into the performance of ML model and predictive capabilities.
 
 
 ## Unfixed Bugs and Challenges Faced
