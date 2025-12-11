@@ -122,7 +122,7 @@ Patients who suffered a stroke are not necessarily overweight, as the distributi
 
 ![alt text](Images/avg_glucose_level_stroke_violinplot.png)
 
-The average glucose level for pateints that experienced a stroke is on the higher side compared the those that didn't.
+The average glucose level for pateints that experienced a stroke is on the higher side compared the those that didn't implying elevated glucose levels are strongly associated with stroke risk.
 
 
 ![alt text](Images/Residence_type_stroke_violinplot.png)
