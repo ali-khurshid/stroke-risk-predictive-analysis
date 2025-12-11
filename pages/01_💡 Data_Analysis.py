@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import seaborn as sns
+import plotly.express as px
 import matplotlib.pyplot as plt
 import joblib
 
@@ -93,8 +94,12 @@ with tab4:
     st.subheader("Feature Importance Visualization")
     st.write("The risk of having a stroke is not linearly related to any single feature...")
 
-    # Two features vs stroke
+   
+
+    # Header
     st.subheader("📊 Two Features vs Stroke")
+
+    # Feature selection
     feature_x = st.selectbox("Select first feature (X-axis):", all_features)
     feature_y = st.selectbox("Select second feature (Y-axis):", all_features, index=1)
 
@@ -102,49 +107,31 @@ with tab4:
     x_numeric = feature_x in numeric_cols
     y_numeric = feature_y in numeric_cols
 
-    fig, ax = plt.subplots(figsize=(6,4))
-
+    # Plot logic
     if x_numeric and y_numeric:
-        sns.scatterplot(x=feature_x, y=feature_y, hue='stroke', data=df, palette='Set1', alpha=0.7, ax=ax)
+        fig = px.scatter(df, x=feature_x, y=feature_y, color='stroke',
+                        color_discrete_map={0: 'blue', 1: 'orange'},
+                        title=f"{feature_x} vs {feature_y} grouped by Stroke",
+                        opacity=0.7)
     elif x_numeric and not y_numeric:
-        sns.boxplot(x=feature_y, y=feature_x, hue='stroke', data=df, ax=ax)
-        sns.stripplot(x=feature_y, y=feature_x, hue='stroke', data=df, dodge=True, color='black', alpha=0.3, ax=ax)
+        fig = px.box(df, x=feature_y, y=feature_x, color='stroke',
+                    color_discrete_map={0: 'blue', 1: 'orange'},
+                    title=f"{feature_x} vs {feature_y} grouped by Stroke")
     elif not x_numeric and y_numeric:
-        sns.boxplot(x=feature_x, y=feature_y, hue='stroke', data=df, ax=ax)
-        sns.stripplot(x=feature_x, y=feature_y, hue='stroke', data=df, dodge=True, color='black', alpha=0.3, ax=ax)
+        fig = px.box(df, x=feature_x, y=feature_y, color='stroke',
+                    color_discrete_map={0: 'blue', 1: 'orange'},
+                    title=f"{feature_x} vs {feature_y} grouped by Stroke")
     else:
-        ct = pd.crosstab([df[feature_x], df[feature_y]], df['stroke'])
-        ct.plot(kind='bar', stacked=False, ax=ax)
+        df['combined'] = df[feature_x].astype(str) + " | " + df[feature_y].astype(str)
+        ct = pd.crosstab(df['combined'], df['stroke']).reset_index()
+        ct_melted = ct.melt(id_vars='combined', value_vars=[0, 1], var_name='stroke', value_name='count')
+        fig = px.bar(ct_melted, x='combined', y='count', color='stroke',
+                    color_discrete_map={0: 'blue', 1: 'orange'},
+                    title=f"{feature_x} + {feature_y} grouped by Stroke")
+        fig.update_layout(xaxis_tickangle=45)
 
-    ax.set_title(f"{feature_x} vs {feature_y} grouped by Stroke")
-    st.pyplot(fig)
-
-    # Top features vs stroke
-    st.subheader("⭐ Top Features vs Stroke")
-    top_n = st.slider("Select the number of features", min_value=1, max_value=10, value=5)
-    top_numeric = [c for c in numeric_cols if c not in ['id', 'stroke']][:top_n]
-    top_categorical = [c for c in categorical_cols if c not in ['id', 'stroke']][:top_n]
-
-    st.subheader("Numeric Features vs Stroke")
-    for feature in top_numeric:
-        fig, ax = plt.subplots(figsize=(6,4))
-        sns.boxplot(x='stroke', y=feature, data=df, ax=ax)
-        sns.stripplot(x='stroke', y=feature, data=df, color='red', alpha=0.3, jitter=True)
-        ax.set_xlabel("Stroke (0 = No, 1 = Yes)")
-        ax.set_ylabel(feature)
-        ax.set_title(f"{feature} grouped by Stroke")
-        st.pyplot(fig)
-
-    st.subheader("Categorical Features vs Stroke")
-    for feature in top_categorical:
-        fig, ax = plt.subplots(figsize=(6,4))
-        sns.countplot(x=feature, hue='stroke', data=df, palette='Set2', ax=ax)
-        ax.set_xlabel(feature)
-        ax.set_ylabel("Count")
-        ax.set_title(f"{feature} grouped by Stroke")
-        ax.legend(title="Stroke", labels=["No", "Yes"])
-        st.pyplot(fig)
-
+    # Show plot
+    st.plotly_chart(fig, use_container_width=True)
 
 
 # -------------------- Tab 5: Correlation Heatmap -------------------- #
