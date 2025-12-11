@@ -2,7 +2,7 @@
 
 # Stroke Risk Predictive Analysis
 
-Project bookmarks:
+## Project Bookmarks:
 
 -   [README](https://github.com/ali-khurshid/stroke-risk-predictive-analysis/blob/main/README.md)
 -   [Project board](https://github.com/users/ali-khurshid/projects/7)
@@ -11,7 +11,7 @@ Project bookmarks:
 -   [ETL Jupyter Notebook - Hypothesis Testing](https://github.com/ali-khurshid/stroke-risk-predictive-analysis/blob/main/jupyter_notebooks/02%20-%20hypothesis_testing.ipynb)
 -   [ETL Jupyter Notebook - Feature Engineering](https://github.com/ali-khurshid/stroke-risk-predictive-analysis/blob/main/jupyter_notebooks/03%20-%20feature_engineering_backup.ipynb)
 -   [ETL Jupyter Notebook - ML Modeling](https://github.com/ali-khurshid/stroke-risk-predictive-analysis/blob/main/jupyter_notebooks/04%20-%20modeling.ipynb)
--   [Streamlit](https://capstone-ali-stroke-risk-prediction.streamlit.app/Prediction_App)
+-   [Streamlit](https://capstone-ali-stroke-prediction.streamlit.app/Prediction_App)
 -   [Conclusion and Discussion](#conclusion-and-discussion)
 
 ## Contents:
@@ -22,10 +22,14 @@ Project bookmarks:
 -   [Hypothesis Testing and Validation](#hypothesis-testing-and-validation)
 -   [Rationale to map business requirements](#the-rationale-to-map-the-business-requirements-to-the-data-visualisations)
 -   [Analysis Techniques Used](#analysis-techniques-used)
+-   [Project Plan](#project-plan)
+-   [Ethical Consideration](#ethical-considerations)
+-   [Streamlit App](#streamlit-app)
+-   [Unfixed Bugs and Challenges Faced](#unfixed-bugs-and-challenges-faced)
 -   [Development Roadmap](#development-roadmap)
--   [Libraries & External Software Used](#libraries--external-software-used)
--   [Conclusion and discussion](#conclusion-and-discussion)
--   [Limitations](#limitations-to-the-dataset)
+-   [Main data Analysis Libraries](#main-data-analysis-libraries)
+-   [Findings](#findings)
+-   [Conclusion and Discussion](#conclusion-and-discussion)
 -   [Credits](#credits)
 -   [Acknowledgements](#acknowledgements)
 
@@ -93,7 +97,7 @@ The only two features that did not have any significant impact on the occurence 
 - `residence_type`
 ------
 
-## The rationale to map the business requirements to the Data Visualisations
+## The rationale to map the business requirements to the data visualisations
 
 - **Distributions** help identify patterns and potential outliers.
 - **Hypothesis testing tables** highlight which features are significantly associated with stroke.
@@ -105,10 +109,23 @@ The only two features that did not have any significant impact on the occurence 
 
 **Below are some of the data visualisations**
 
+![alt text](Images/age_stroke_violinplot.png)
 
+![alt text](Images/bmi_stroke_violinplot.png)
+
+![alt text](Images/avg_glucose_level_stroke_violinplot.png)
+
+![alt text](Images/Residence_type_stroke_violinplot.png)
+
+
+![alt text](Images/work_type_stroke_violinplot.png)
+
+![alt text](Images/gender_distribution.png)
+
+![alt text](Images/bmi_distribution_mean_vs_median.png)
 ---
 
-## Analysis techniques used
+## Analysis Techniques Used
 *  Descriptive statistics for numerical and categorical features
 - Data visualization using histograms, count plots, violinplots, pairplots, correlation heatmaps and boxplots
 - Hypothesis testing:
