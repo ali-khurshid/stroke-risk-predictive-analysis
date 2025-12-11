@@ -437,10 +437,12 @@ The model provides a foundation for a stroke risk prediction tool, useful for ra
 
 ### Media
 
-- The photos used on the home and sign-up page are from This Open-Source site
-- The images used for the gallery page were taken from this other open-source site
+- The banner used for the home page was created by Microsoft co-pilot.
+- All charts and visualisations were created by Python coding.
 
 
 
 ## Acknowledgements (optional)
-* Thank the people who provided support through this project.
+
+* Special thanks to our facilitator Emma Lamont, Our Tutors Neil, Michael and Spencer for making this course easy to learn.
+* I'd like to thank all my colleagues for being a fun group to work with.
