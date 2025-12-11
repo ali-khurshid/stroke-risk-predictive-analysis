@@ -64,9 +64,11 @@ The [Stroke Prediction Dataset](https://www.kaggle.com/datasets/fedesoriano/stro
 
 ## Business Requirements
 - Identify the features most associated with stroke risk.
-- Provide clear visualizations to support healthcare decision-making.
+- Provide clear visualizations to support ML model creation
 - Ensure the analysis is reproducible and interpretable.
 - Understand imbalanced data impact
+- Check if prediction works for educational purposes or real life application
+- Ensure AI & ML ethical attributes are considered.
 
 ---
 
