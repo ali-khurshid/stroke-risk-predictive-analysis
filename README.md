@@ -11,7 +11,7 @@
 -   [ETL Jupyter Notebook - Hypothesis Testing](https://github.com/ali-khurshid/stroke-risk-predictive-analysis/blob/main/jupyter_notebooks/02%20-%20hypothesis_testing.ipynb)
 -   [ETL Jupyter Notebook - Feature Engineering](https://github.com/ali-khurshid/stroke-risk-predictive-analysis/blob/main/jupyter_notebooks/03%20-%20feature_engineering_backup.ipynb)
 -   [ETL Jupyter Notebook - ML Modeling](https://github.com/ali-khurshid/stroke-risk-predictive-analysis/blob/main/jupyter_notebooks/04%20-%20modeling.ipynb)
--   [Streamlit](https://capstone-ali-stroke-prediction.streamlit.app/Prediction_App)
+-   [Streamlit](https://risk-prediction-for-stroke.streamlit.app/)
 -   [Conclusion and Discussion](#conclusion-and-discussion)
 
 ## Table of Contents:
@@ -113,16 +113,16 @@ The only two features that did not have any significant impact on the occurence 
 
 ![alt text](Images/age_stroke_violinplot.png)
 
-- Distribution of age vs patients who suffered a stroke vs those who didn't. It highlights that stroke occurence is more concentrated among older patients.
+Distribution of age vs patients who suffered a stroke vs those who didn't. It highlights that stroke occurence is more concentrated among older patients.
 
 
 ![alt text](Images/bmi_stroke_violinplot.png)
 
-- This chart shows patients who suffered a stroke are not necessarily overweight, as the distribution for both stroke vs non stroke patients is nearly the same. However, medical research suggests BMI is one of several risk factors for stroke. My analysis is that BMI alone may not be a driving factor in my dataset.
+Patients who suffered a stroke are not necessarily overweight, as the distribution for both stroke vs non stroke patients is nearly the same. However, medical research suggests BMI is one of several risk factors for stroke. My analysis is that BMI alone may not be a driving factor in my dataset.
 
 ![alt text](Images/avg_glucose_level_stroke_violinplot.png)
 
-- This chart shows patients who suffered a stroke are not necessarily overweight, as the distribution for both stroke vs non stroke patients is nearly the same. However, medical research suggests BMI is one of several risk factors for stroke. My analysis is that BMI alone may not be a driving factor in my dataset.
+The average glucose level for pateints that experienced a stroke is on the higher side compared the those that didn't.
 
 
 ![alt text](Images/Residence_type_stroke_violinplot.png)
@@ -132,15 +132,15 @@ This chart confirms the finding of our null hypothesis testing. Residence type d
 
 ![alt text](Images/work_type_stroke_violinplot.png)
 
-- Individuals working in the private sector show the highest occurence of stroke and non stroke, followed by self-employed. However, as a standalone factor they impact is not high.
+Individuals working in the private sector show the highest occurence of stroke and non stroke, followed by self-employed. However, as a standalone factor they impact is not high.
 
 ![alt text](Images/gender_distribution.png)
 
-We have an equal distribution of both genders in our dataset. A balanced feature are always good to have.
+We have an equal distribution of both genders in our dataset. A balanced feature is always good to have.
 
 ![alt text](Images/bmi_distribution_mean_vs_median.png)
 
-- In deciding whether to use Mean or Median as an imputation method, this chart shows that both perform equally well in handling missing values. However. median was selected based on the fact that they are more robust where the distribution is slightly skewed.
+In deciding whether to use Mean or Median as an imputation method, this chart shows that both perform equally well in handling missing values. However. median was selected based on the fact that they are more robust where the distribution is slightly skewed.
 
 ![alt text](Images/pairplot_numerical.png)
 
@@ -148,7 +148,7 @@ This chart suggests that the strongest bivariate features in patients suffering 
 
 ![alt text](Images/Num_Correlation.jpg)
 
-- Mild correlations exist between hypertension, heart disease & stroke. This suggests that the probability of a stroke occuring in older patients with high average glucose levels will be compounded with pre-existing medical conditions.
+Mild correlations exist between hypertension, heart disease & stroke. This suggests that the probability of a stroke occuring in older patients with high average glucose levels will be compounded with pre-existing medical conditions.
 ---
 
 ## Analysis Techniques Used
@@ -211,7 +211,7 @@ This chart suggests that the strongest bivariate features in patients suffering 
 ## Streamlit App
 I created a Streamlit app to allow interactive exploration of the dataset features, relationships and distributions. Users can predict stroke risk for a given patient using a prediction calculator. 
 
-You can access the app and explore here: https://capstone-ali-stroke-prediction.streamlit.app/Prediction_App
+You can access the app and explore here: https://risk-prediction-for-stroke.streamlit.app/
 
 The app is a multi-paged dashboard consisting of:
 
@@ -223,10 +223,13 @@ The app is a multi-paged dashboard consisting of:
 
 
 ## Unfixed Bugs and Challenges Faced
-- There are no unfixed bugs to report.
+- I am not sure why my streamlit performance metrics are too high compared to my model. This could be an unfixed bug or probably due to the fact that streamlit inflates the performace metric as it uses the full datset not just the test set.
 
 <u>**Challenges faced**</u>
 
+- Ran into major difficulty while deploying Streamlit to the cloud.
+- Ran into several bugs and issues that needed help from ChatGPT and Co-Pilot to resolve.
+- I knew from the outset that I have a challenging dataset as it was imbalanced for the target varibale stroke.
 ---
 
 ## Development Roadmap
