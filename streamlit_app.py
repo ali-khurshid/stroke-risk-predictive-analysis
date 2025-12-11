@@ -3,6 +3,7 @@ import joblib
 import pandas as pd
 from helpers import preprocess_input,load_model
 
+
 # Main entry page for streamlit app
 
 
@@ -24,7 +25,7 @@ model = load_model()
 # --- Load and preprocess data ---
 @st.cache_data
 def load_data():
-    df = pd.read_parquet('Data/feature_engineered_stroke_data.parquet.')
+    df = pd.read_parquet('Data/feature_engineered_stroke_data.parquet')
     df = preprocess_input(df)  # apply your rounding/casting here
     return df
 
