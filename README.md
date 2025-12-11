@@ -162,17 +162,23 @@ The only two features that did not have any significant impact on the occurence 
 ---
 
 ## Streamlit App
-* I created a Streamlit app to allow interactive exploration of features and distributions. Users can predict the risk of stroke in a given patient via a prediction calculator app. The link for this is shared below.
+I created a Streamlit app to allow interactive exploration of the dataset features, relationships and distributions. Users can predict stroke risk for a given patient using a prediction calculator. 
 
-(https://churn-crusher-dashboard.streamlit.app/)
+You can access the app and explore here: (https://churn-crusher-dashboard.streamlit.app/)
 
----
-* Explain how the dashboard was designed to communicate complex data insights to different audiences. 
+The app is a multi-paged dashboard consisting of:
 
-## Unfixed Bugs
-* Please mention unfixed bugs and why they were not fixed. This section should include shortcomings of the frameworks or technologies used. Although time can be a significant variable to consider, paucity of time and difficulty understanding implementation are not valid reasons to leave bugs unfixed.
-* Did you recognise gaps in your knowledge, and how did you address them?
-* If applicable, include evidence of feedback received (from peers or instructors) and how it improved your approach or understanding.
+- **Overview** - A summary of the dataset and project tools used.
+- **EDA** - is made up of 5 tabs and discusses the raw data, numerical and categorical features, their importance and a correlation heatmap.
+- Feature Engineering - Shows how the raw data was cleaned, transformed and encoded to make it model-ready. It also talks about the Pipeline that was eventually built.
+- Prediction App - patient stroke risk calculator based on the available dataset.
+- Model Performance - looks into the performance of ML model and predictive capabilities.
+
+
+## Unfixed Bugs and Challenges Faced
+- There are no unfixed bugs to report.
+
+<u>**Challenges faced**</u>
 
 ---
 
@@ -186,9 +192,14 @@ The only two features that did not have any significant impact on the occurence 
 ## Main Data Analysis Libraries
 The following libraries were used in my project.
 
-- `Pandas`
-- `numpy`
+
+ - `helpers`
+ - `joblib`
 - `matplotlib` . `pyplot`
+- `numpy`
+- `os`
+- `Pandas`
+ - `pyexpat`
 - `scipy` . `stats`
 - `seaborn`
 - `sklearn` . `pipeline`
@@ -199,12 +210,9 @@ The following libraries were used in my project.
 - `sklearn` . `metrics`
 - `imblearn` . `oversampling`
 - `sklearn` . `model_selection`
- - `pyexpat`
- - `sklearn` . `ensemble`
- - `joblib`
- - `helpers`
- - `streamlit`
- - `os`
+- `sklearn` . `ensemble`
+- `streamlit`
+ 
 
 ---
 
@@ -219,7 +227,7 @@ The following libraries were used in my project.
 
 **Machine Learning Findings**
 
-1. **Class Imbalance**
+<u>*Class Imbalance*</u>
 
 During exploratory analysis, it was found that the original dataset was highly imbalanced, with stroke =1 representing only 5% of records. Initial models would have massively skewed in prediciting the major class (stroke = 0) overwhelmingly, which would have led to:
 
@@ -231,7 +239,7 @@ During exploratory analysis, it was found that the original dataset was highly i
 
 
 
-2. **SMOTE Oversampling**
+<u>*SMOTE Oversampling*</u>
 
 To correct the imbalance SMOTE was applied to the training set only. This resulted in:
 
@@ -239,7 +247,7 @@ To correct the imbalance SMOTE was applied to the training set only. This result
  - Prevented the model from learning a bias towards predicitng "no stroke".
  - Both Logistic Regression and RandomForest achieved better recall and F1 scores.
 
-3. **Logistic Regression Findings**
+<u>*Logistic Regression Findings*</u>
 
 Below is the performance of Logistic Regression.
 
@@ -260,7 +268,7 @@ False negatives = 17
 
 The model achieves 53.8% accuracy, performing well on predicting no-stroke cases but struggling with stroke cases due to class imbalance. It correctly identifies most actual strokes (high recall) but also produces many false alarms (low precision). Overall, it highlights the challenge of predicting rare events and suggests that balancing the dataset or using alternative models could improve performance.
 
-**Motivation for Using Random Forest**
+<u>**Motivation for Using Random Forest**</u>
 
 Because this model predicted the majority class (no stroke) well but struggled with the minority class (stroke), I opted to switch to Random Forest, which better handles class imbalance and captures complex patterns in the data.
 
@@ -287,7 +295,7 @@ Robust to noisy data: It can maintain performance even with irrelevant or correl
 
 This model did not perform very well, owing to the fact that the imbalance of stroke class still existed despite correcting it with SMOTE. 
 
-4. **Random Forest Classifier Findings**
+<u>*Random Forest Classifier Findings*</u>
 
 *Confusion Matrix*
 
@@ -324,7 +332,7 @@ This shows the need for additional techniques (e.g., SMOTE, class weighting, or 
 
 - Insight: Strong overall accuracy and excellent prediction for the majority class, but almost completely misses stroke cases (very low recall for class 1).
 
-5. Tuning of hyperparameters of Random Forest.
+<u>*Tuning of hyperparameters of Random Forest*</u>
 
 After hyperparameter tuning, the Random Forest model was optimized with:
 
@@ -353,8 +361,6 @@ Confusion Matrix shows strong prediction for the majority class (no stroke), but
 
 
 ## Conclusion and Discussion
-
-Comparison & Rationale:
 
 Logistic Regression caught more actual stroke cases (higher recall) but misclassified many non-stroke cases, leading to low overall accuracy.
 

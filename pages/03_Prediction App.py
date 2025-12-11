@@ -11,7 +11,7 @@ st.set_page_config(
 )
 
 st.title("🧠 Stroke Risk Prediction")
-st.write("Adjust the patient information below to estimate the stroke likelihood.")
+st.write("Adjust the patient information below to estimate stroke likelihood.")
 
 # -------------------- Load Model and Ranges -------------------- #
 pipeline = load_model()
@@ -20,27 +20,27 @@ clf = pipeline.named_steps['clf']
 
 NUM_RANGES, CAT_RANGES = get_ranges()
 
-# -------------------- User Inputs with session_state -------------------- #
+# -------------------- User Inputs -------------------- #
 st.header("🏥 Patient Information")
 col1, col2 = st.columns(2)
 
 with col1:
     age = st.slider(
-    "Age",
-    min_value=int(NUM_RANGES["age"][0]),
-    max_value=int(NUM_RANGES["age"][1]),
-    value=int(st.session_state.get("age", (NUM_RANGES["age"][0] + NUM_RANGES["age"][1]) // 2)),
-    step=1,
-    key="age"
-)
+        "Age",
+        min_value=int(NUM_RANGES["age"][0]),
+        max_value=int(NUM_RANGES["age"][1]),
+        value=int(st.session_state.get("age", (NUM_RANGES["age"][0] + NUM_RANGES["age"][1]) // 2)),
+        step=1,
+        key="age"
+    )
     bmi = st.slider(
-    "BMI",
-    min_value=int(NUM_RANGES["bmi"][0]),
-    max_value=int(NUM_RANGES["bmi"][1]),
-    value=int(st.session_state.get("bmi", (NUM_RANGES["bmi"][0] + NUM_RANGES["bmi"][1]) // 2)),
-    step=1,
-    key="bmi"
-)
+        "BMI",
+        min_value=int(NUM_RANGES["bmi"][0]),
+        max_value=int(NUM_RANGES["bmi"][1]),
+        value=int(st.session_state.get("bmi", (NUM_RANGES["bmi"][0] + NUM_RANGES["bmi"][1]) // 2)),
+        step=1,
+        key="bmi"
+    )
     gender = st.selectbox(
         "Gender",
         CAT_RANGES["gender"],
@@ -62,16 +62,16 @@ with col1:
 
 with col2:
     avg_glucose_level = st.slider(
-    "Average Glucose Level",
-    min_value=int(NUM_RANGES["avg_glucose_level"][0]),
-    max_value=int(NUM_RANGES["avg_glucose_level"][1]),
-    value=int(st.session_state.get(
-        "avg_glucose_level",
-        (NUM_RANGES["avg_glucose_level"][0] + NUM_RANGES["avg_glucose_level"][1]) // 2
-    )),
-    step=1,
-    key="avg_glucose_level"
-)
+        "Average Glucose Level",
+        min_value=int(NUM_RANGES["avg_glucose_level"][0]),
+        max_value=int(NUM_RANGES["avg_glucose_level"][1]),
+        value=int(st.session_state.get(
+            "avg_glucose_level",
+            (NUM_RANGES["avg_glucose_level"][0] + NUM_RANGES["avg_glucose_level"][1]) // 2
+        )),
+        step=1,
+        key="avg_glucose_level"
+    )
     hypertension = st.radio(
         "Hypertension",
         [0, 1],
@@ -116,30 +116,26 @@ input_df = pd.DataFrame({
 
 # -------------------- Prediction -------------------- #
 if st.button("Predict Stroke Risk"):
-    # Preprocess input
     X_transformed = preprocessor.transform(input_df)
-
-    # Predict
-    prediction = clf.predict(X_transformed)[0]
     probability = clf.predict_proba(X_transformed)[0][1]
 
-    # -------------------- Results -------------------- #
+    # Risk thresholds (same as before)
+    if probability >= 0.25:
+        risk_label = "🔴 HIGH Stroke Risk"
+    elif probability >= 0.10:
+        risk_label = "🟡 Moderate Stroke Risk"
+    else:
+        risk_label = "🟢 Low Stroke Risk"
+
+    # Display results
     col1, col2 = st.columns([1, 2])
-
     with col1:
-        if probability >= 0.25:
-            risk_label = "🔴 HIGH Stroke Risk"
-        elif probability >= 0.10:
-            risk_label = "🟡 Moderate Stroke Risk"
-        else:
-            risk_label = "🟢 Low Stroke Risk"
         st.metric(label="Predicted Risk", value=risk_label)
-
     with col2:
         st.progress(min(max(probability, 0.0), 1.0))
         st.write(f"**Prediction Confidence:** {probability*100:.2f}%")
 
-    # -------------------- Recommendations -------------------- #
+    # Recommendations
     with st.expander("💡 Recommendations / Advice"):
         if probability >= 0.25:
             st.warning("🚨 High Risk — Medical consultation recommended.")
@@ -148,7 +144,7 @@ if st.button("Predict Stroke Risk"):
         else:
             st.success("✅ Low risk — Maintain healthy habits.")
 
-   
 # -------------------- Show Input Data -------------------- #
 st.write("### 🤒 Patient Input Data")
 st.dataframe(input_df)
+
