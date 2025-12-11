@@ -113,18 +113,38 @@ The only two features that did not have any significant impact on the occurence 
 
 ![alt text](Images/age_stroke_violinplot.png)
 
+- Distribution of age vs patients who suffered a stroke vs those who didn't. It highlights that stroke occurence is more concentrated among older patients.
+
+
 ![alt text](Images/bmi_stroke_violinplot.png)
+
+- This chart shows patients who suffered a stroke are not necessarily overweight, as the distribution for both stroke vs non stroke patients is nearly the same. However, medical research suggests BMI is one of several risk factors for stroke. My analysis is that BMI alone may not be a driving factor in my dataset.
 
 ![alt text](Images/avg_glucose_level_stroke_violinplot.png)
 
+- This chart shows patients who suffered a stroke are not necessarily overweight, as the distribution for both stroke vs non stroke patients is nearly the same. However, medical research suggests BMI is one of several risk factors for stroke. My analysis is that BMI alone may not be a driving factor in my dataset.
+
+
 ![alt text](Images/Residence_type_stroke_violinplot.png)
+
+This chart confirms the finding of our null hypothesis testing. Residence type does not have a significant impact on the occurence of stroke in individuals, however, we must be careful as it could well become a driving force when compounded with other highly relatable factors.
 
 
 ![alt text](Images/work_type_stroke_violinplot.png)
 
+- Individuals working in the private sector show the highest occurence of stroke and non stroke, followed by self-employed. However, as a standalone factor they impact is not high.
+
 ![alt text](Images/gender_distribution.png)
 
+We have an equal distribution of both genders in our dataset. A balanced feature are always good to have.
+
 ![alt text](Images/bmi_distribution_mean_vs_median.png)
+
+- In deciding whether to use Mean or Median as an imputation method, this chart shows that both perform equally well in handling missing values. However. median was selected based on the fact that they are more robust where the distribution is slightly skewed.
+
+![alt text](Images/pairplot_numerical.png)
+
+This chart suggests that the strongest bivariate features in patients suffering from a stroke tend to be be older and higher glucose level ones. It also confirms that BMI appears less distinct between both stroke and non stroke patients.
 ---
 
 ## Analysis Techniques Used
