@@ -106,10 +106,11 @@ st.markdown(
     """
 <hr>
 <p style='font-size:12px; color:gray;'>
-*Disclaimer: The metrics shown are for demonstration purposes. page is probably computing metrics on the full dataset, which includes training data → inflates numbers. 
-They reflect performance on the provided evaluation dataset and may not generalize to new, unseen data.*
+Disclaimer: The metrics shown are for demonstration purposes. This page is probably computing metrics on the full dataset, which includes training data → inflates numbers.
+They reflect performance on the provided evaluation dataset and may not generalize to new, unseen data.
 </p>
-"""
+""",
+    unsafe_allow_html=True
 )
 
 
