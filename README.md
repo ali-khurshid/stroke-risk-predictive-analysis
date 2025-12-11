@@ -40,17 +40,17 @@ The dataset contains patient records including demographic information, health i
 
 - **Numerical:** 
 
-    - `age`, 
-    - `avg_glucose_level`, 
+    - `age` 
+    - `avg_glucose_level`
     - `bmi`
 - **Categorical:** 
 
-  - `gender`, 
-  - `hypertension`, 
-  - `heart_disease`, 
-  - `ever_married`, 
-  - `work_type`, 
-  - `residence_type`, 
+  - `gender` 
+  - `hypertension`
+  - `heart_disease` 
+  - `ever_married` 
+  - `work_type`
+  - `residence_type` 
   - `smoking_status`
 - **Target:** 
 
