@@ -1,6 +1,10 @@
 import joblib
 import pandas as pd
 import streamlit as st
+import os
+
+BASE_DIR = os.path.dirname(__file__)  # the folder where helpers.py lives
+DATA_PATH = os.path.join(BASE_DIR, "Data", "feature_engineered_stroke_data.parquet")
 
 # -------------------- Load Training Data -------------------- #
 @st.cache_resource
@@ -9,7 +13,7 @@ def load_training_data():
     Loads the processed stroke dataset.
     Returns a pandas DataFrame.
     """
-    df = pd.read_parquet("..Data/feature_engineered_stroke_data.parquet")
+    df = pd.read_parquet(DATA_PATH)
     return df
 
 # -------------------- Numeric and Categorical Ranges -------------------- #
