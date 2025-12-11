@@ -38,9 +38,23 @@ This project analyzes stroke risk factors in patients and provides visualization
 ## Dataset Content
 The dataset contains patient records including demographic information, health indicators, and lifestyle factors. Key features include:
 
-- **Numerical:** `age`, `avg_glucose_level`, `bmi`
-- **Categorical:** `gender`, `hypertension`, `heart_disease`, `ever_married`, `work_type`, `residence_type`, `smoking_status`
-- **Target:** `stroke` (0 = no stroke, 1 = stroke)
+- **Numerical:** 
+
+    - `age`, 
+    - `avg_glucose_level`, 
+    - `bmi`
+- **Categorical:** 
+
+  - `gender`, 
+  - `hypertension`, 
+  - `heart_disease`, 
+  - `ever_married`, 
+  - `work_type`, 
+  - `residence_type`, 
+  - `smoking_status`
+- **Target:** 
+
+  - `stroke` (0 = no stroke, 1 = stroke)
 
 ---
 
@@ -48,16 +62,44 @@ The dataset contains patient records including demographic information, health i
 - Identify the features most associated with stroke risk.
 - Provide clear visualizations to support healthcare decision-making.
 - Ensure the analysis is reproducible and interpretable.
+- Understand imbalanced data impact
 
 ---
 
 ## Hypothesis Testing and Validation
-* List here your project hypothesis(es) and how you envision validating it (them)
+
+T-test was used for the numerical features while the
+Chi-square test was used for the categorical features
+
+Significance level Alpha = 0.05.
+
+  Feature            |  Test      | Statistic  |      p-value  | Significant |
+| :---------------: |:----------: |:---------: |:------------: |:----------: |
+|                age |     T-test |  18.080834 | 7.030778e-71  |       True  |
+|  avg_glucose_level |     T-test |  9.513352 | 2.767811e-21    |       True   |
+|                bmi |     T-test |  2.970943 | 2.983269e-03    |       True   |
+|             gender | Chi-square  | 0.472587 | 7.895491e-01    |      False   |
+|       hypertension | Chi-square|81.605368 | 1.661622e-19      |       True    |
+|      heart_disease | Chi-square | 90.259561 | 2.088785e-21    |       True   |
+|       ever_married | Chi-square|  58.923890 | 1.638902e-14    |       True   |
+|          work_type | Chi-square|  49.163512 | 5.397708e-10    |       True   |
+|     residence_type | Chi-square|   1.081637 | 2.983317e-01    |      False   |
+| smoking_status|  Chi-square  |29.147269   |2.085400e-06       |        True    |
+
+
+The only two features that did not have any significant impact on the occurence of a stroke were
+
+- `gender`
+- `residence_type`
+------
 
 ## The rationale to map the business requirements to the Data Visualisations
+
 - **Distributions** help identify patterns and potential outliers.
 - **Hypothesis testing tables** highlight which features are significantly associated with stroke.
 - **Categorical plots** provide clear counts for each subgroup, aiding interpretation for healthcare stakeholders.
+- **Violin and Boxplots** helps understand relationships between primary and secondary features vs stroke occurence.
+- **Model performance metrics** helps to understand how well the model is performing and whether fine tuning is required to improve it
 
 ---
 
@@ -65,26 +107,57 @@ The dataset contains patient records including demographic information, health i
 *  Descriptive statistics for numerical and categorical features
 - Data visualization using histograms, count plots, violinplots, pairplots, correlation heatmaps and boxplots
 - Hypothesis testing:
-  - T-test for numerical features
-  - Chi-square test for categorical features
+  - `T-test` for numerical features
+  - `Chi-square` test for categorical features
+
+- `SMOTE` to address imbalanced data class.
+
+- Modeling
+  - `Pipeline` to create ML pipelines.
+  - `ColumnTransformer` to apply different preprocessing steps to different column of a single pipeline.
+  -`OneHotEncoder` to convert categorical values into numerical values.
+  - `SimpleImputer` to handle missing data with a selected strategy.
+  - `LogisticRegression` for ML modeling and training
+  - `RandomForest` for ML modeling and training
+  
+- Improving Model Performance
+
+  - `classification_report`
+  - `confusion_matrix`
+  - `accuracy_score`
+  - `roc_auc_score`
+
+- `GridsearchCV` to find best hyperparameters to impprove the model's performance
+
 
 ## Project Plan
-* Outline the high-level steps taken for the analysis.
-* How was the data managed throughout the collection, processing, analysis and interpretation steps?
-* Why did you choose the research methodologies you used?
+
+| Day             |      Plan                                     |                   Responsibility                        |
+| :-------------- | :-------------:                               | :------------------------------------------------:      |
+| Monday          |  Load data and EDA                            | Perform EDA and understand relationships. Clean the data|
+| Tuesday         |  Hypothesis creation and testing              |  Hypothesis assesment to understand impact of features on target         |
+| Wednesday       |  Feature Engineering and Model creation       |  Data visualisation and data preparation for the model  |
+| Thursday        |  Hyperparameter Tuning and Prediction         |     Using best performance parameters for prediction    |
+| Friday          |  Streamlit and ReadME                         |            App creation, deployment and documentation   |
 
 ---
 
 
-## Ethical considerations
+## Ethical Considerations
 - Data anonymization: No personally identifiable information is used.
 - Bias awareness: Considered potential disparities across gender, age, and lifestyle factors.
 - Responsible reporting: Visualizations are intended for insight and educational purposes, not clinical decision-making.
 
+**AI & ML Ethics**
+  - I acknowledge that biased data can lead to unfair predictions for certain groups, especially in healthcare where impacts can be serious.
+  - I attempted to mitigate this by examining distributions, correlations and ensuring transparency in preprocessing, but biases may still exist.
+  - The target variable (Stroke) in my dataset had heavy class imbalance, this was taken into account while training and building the model.
+  - This model is not intended to replace clinical judgement or be deployed in a healthcare setting. It serves only as an educational analytical tool for understanding relationships, patterns and predictive modelling techniques.
+
 ---
 
 ## Streamlit App
-* I created a Streamlit app to allow interactive exploration of features, distributions, and hypothesis test results. Users can filter by feature or subgroup to gain insights in a visual and intuitive format.
+* I created a Streamlit app to allow interactive exploration of features and distributions. Users can predict the risk of stroke in a given patient via a prediction calculator app. The link for this is shared below.
 
 (https://churn-crusher-dashboard.streamlit.app/)
 
@@ -106,17 +179,71 @@ The dataset contains patient records including demographic information, health i
 
 
 ## Main Data Analysis Libraries
-* Here you should list the libraries you used in the project and provide an example(s) of how you used these libraries.
+The following libraries were used in my project.
+
+- `Pandas`
+- `numpy`
+- `matplotlib` . `pyplot`
+- `scipy` . `stats`
+- `seaborn`
+- `sklearn` . `pipeline`
+- `sklearn` . `compose`
+- `sklearn` . `preprocessing`
+- `sklearn` . `impute`
+- `sklearn` . `linear_model`
+- `sklearn` . `metrics`
+- `imblearn` . `oversampling`
+- `sklearn` . `model_selection`
+ - `pyexpat`
+ - `sklearn` . `ensemble`
+ - `joblib`
+ - `helpers`
+ - `streamlit`
+ - `os`
 
 ---
 
-## Conclusion and Discussion
+## Findings
 
+**Relationship of the Features with the Target Variable**
 - **Age**, **avg_glucose_level**, and **bmi** show statistically significant differences between stroke and non-stroke groups.  
 - **Hypertension**, **heart_disease**, **ever_married**, and **smoking_status** are significantly associated with stroke incidence.  
 - Features such as **gender**, **work_type**, and **residence_type** showed less direct association with stroke in this dataset.  
 - The results suggest that **health indicators** (age, glucose level, BMI, hypertension, heart disease) are the most critical factors to monitor for stroke risk.  
 - These insights can guide targeted preventive measures and form the basis for further predictive modeling of stroke risk.
+
+**Machine Learning Findings**
+
+1. **Class Imbalance**
+
+During exploratory analysis, it was found that the original dataset was highly imbalanced, with stroke =1 representing only 5% of records. Initial models would have massively skewed in prediciting the major class (stroke = 0) overwhelmingly, which would have led to:
+
+ - misleading sense of high accuracy
+ - extremely low recall for stroke cases
+ - the inability to correctly flag hish risk patients
+
+ A correction on the imbalance was critical.
+
+
+
+2. **SMOTE Oversampling**
+
+To correct the imbalance SMOTE was applied to the training set only. This resulted in:
+
+ - 50/50 split between stroke cases in the original dataset as opposed to 95/5.
+ - Prevented the model from learning a bias towards predicitng "no stroke".
+ - Both Logistic Regression and RandomForest achieved better recall and F1 scores.
+
+3. **Logistic Regression Findings**
+
+
+4. **Random Forest Classifier Findings**
+
+
+## Conclusion and Discussion
+
+
+
 
 ---
 
