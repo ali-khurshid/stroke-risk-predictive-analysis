@@ -14,7 +14,7 @@
 -   [Streamlit](https://capstone-ali-stroke-prediction.streamlit.app/Prediction_App)
 -   [Conclusion and Discussion](#conclusion-and-discussion)
 
-## Contents:
+## Table of Contents:
 
 -   [Project Overview](#project-overview)
 -   [Dataset Content](#dataset-content)
