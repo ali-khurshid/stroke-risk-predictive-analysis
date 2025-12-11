@@ -146,9 +146,14 @@ In deciding whether to use Mean or Median as an imputation method, this chart sh
 
 This chart suggests that the strongest bivariate features in patients suffering from a stroke tend to be be older and higher glucose level ones. It also confirms that BMI appears less distinct between both stroke and non stroke patients.
 
+---
+
 ![alt text](Images/Num_Correlation.jpg)
 
+
+
 Mild correlations exist between hypertension, heart disease & stroke. This suggests that the probability of a stroke occuring in older patients with high average glucose levels will be compounded with pre-existing medical conditions.
+
 ---
 
 ## Analysis Techniques Used
