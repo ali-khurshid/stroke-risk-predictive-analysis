@@ -426,12 +426,10 @@ The model provides a foundation for a stroke risk prediction tool, useful for ra
 
 ## Credits 
 
-* In this section, you need to reference where you got your content, media and extra help from. It is common practice to use code from other repositories and tutorials, however, it is important to be very specific about these sources to avoid plagiarism. 
-* You can break the credits section up into Content and Media, depending on what you have included in your project. 
-
 ### Content 
 
-- The text for the Home page was taken from Wikipedia Article A
+- ChatGPT helped me rephrase my englih and sentence construction in this document.
+- ChatGPT was used to help create code, debug errors and the block I encountered while deployed Streamlit.
 - Instructions on how to implement form validation on the Sign-Up page was taken from [Specific YouTube Tutorial](https://www.youtube.com/)
 - The icons in the footer were taken from [Font Awesome](https://fontawesome.com/)
 
@@ -442,7 +440,7 @@ The model provides a foundation for a stroke risk prediction tool, useful for ra
 
 
 
-## Acknowledgements (optional)
+## Acknowledgements
 
 * Special thanks to our facilitator Emma Lamont, Our Tutors Neil, Michael and Spencer for making this course easy to learn.
 * I'd like to thank all my colleagues for being a fun group to work with.
