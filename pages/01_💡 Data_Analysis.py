@@ -156,7 +156,6 @@ with tab5:
 
     fig, ax = plt.subplots(figsize=(8,6))
     sns.heatmap(corr, annot=True, cmap="coolwarm", fmt=".2f", ax=ax)
-    fig.savefig('../Images/correlation_heatmap.png',bbox_inches='tight', dpi=300, facecolor = 'white'))
     st.pyplot(fig)
 
     st.write("Correlations closer to **1** or **-1** show stronger relationships.")
