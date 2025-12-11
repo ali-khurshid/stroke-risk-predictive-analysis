@@ -12,7 +12,7 @@ Project bookmarks:
 -   [ETL Jupyter Notebook - Feature Engineering](https://github.com/ali-khurshid/stroke-risk-predictive-analysis/blob/main/jupyter_notebooks/03%20-%20feature_engineering_backup.ipynb)
 -   [ETL Jupyter Notebook - ML Modeling](https://github.com/ali-khurshid/stroke-risk-predictive-analysis/blob/main/jupyter_notebooks/04%20-%20modeling.ipynb)
 -   [Streamlit](https://capstone-ali-stroke-risk-prediction.streamlit.app/Prediction_App)
--   [Conclusion and discussion](#conclusion-and-discussion)
+-   [Conclusion and Discussion](#conclusion-and-discussion)
 
 ## Contents:
 
