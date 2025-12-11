@@ -36,7 +36,7 @@ This project analyzes stroke risk factors in patients and provides visualization
 ---
 
 ## Dataset Content
-The dataset contains patient records including demographic information, health indicators, and lifestyle factors. Key features include:
+The [Stroke Prediction Dataset](https://www.kaggle.com/datasets/fedesoriano/stroke-prediction-dataset) downloaded from kaggle contains patient records including demographic information, health indicators, and lifestyle factors. Key features include:
 
 - **Numerical:** 
 
