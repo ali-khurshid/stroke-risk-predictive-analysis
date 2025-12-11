@@ -181,7 +181,7 @@ The only two features that did not have any significant impact on the occurence 
 ## Streamlit App
 I created a Streamlit app to allow interactive exploration of the dataset features, relationships and distributions. Users can predict stroke risk for a given patient using a prediction calculator. 
 
-You can access the app and explore here: (https://churn-crusher-dashboard.streamlit.app/)
+You can access the app and explore here: https://capstone-ali-stroke-prediction.streamlit.app/Prediction_App
 
 The app is a multi-paged dashboard consisting of:
 
