@@ -101,6 +101,11 @@ The only two features that did not have any significant impact on the occurence 
 - **Violin and Boxplots** helps understand relationships between primary and secondary features vs stroke occurence.
 - **Model performance metrics** helps to understand how well the model is performing and whether fine tuning is required to improve it
 
+- **Feature engineering** was used to unify the column labels and get them to `.str.lower()` . In addition, `.replace` was used to consolidate 'unknown' and 'other' entries in the column by substituting them with the most frequently occurring value. Converting columns `age` and `bmi` to `int` for modeling was also carried out.
+
+**Below are some of the data visualisations**
+
+
 ---
 
 ## Analysis techniques used
