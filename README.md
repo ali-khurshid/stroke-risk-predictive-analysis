@@ -23,6 +23,7 @@
 -   [Rationale to map business requirements](#the-rationale-to-map-the-business-requirements-to-the-data-visualisations)
 -   [Analysis Techniques Used](#analysis-techniques-used)
 -   [Project Plan](#project-plan)
+-   [Project Board](#project-board)
 -   [Ethical Consideration](#ethical-considerations)
 -   [Streamlit App](#streamlit-app)
 -   [Unfixed Bugs and Challenges Faced](#unfixed-bugs-and-challenges-faced)
@@ -79,18 +80,7 @@ Chi-square test was used for the categorical features
 
 Significance level Alpha = 0.05.
 
-  Feature            |  Test      | Statistic  |      p-value  | Significant |
-| :---------------: |:----------: |:---------: |:------------: |:----------: |
-|                age |     T-test |  18.080834 | 7.030778e-71  |       True  |
-|  avg_glucose_level |     T-test |  9.513352 | 2.767811e-21    |       True   |
-|                bmi |     T-test |  2.970943 | 2.983269e-03    |       True   |
-|             gender | Chi-square  | 0.472587 | 7.895491e-01    |      False   |
-|       hypertension | Chi-square|81.605368 | 1.661622e-19      |       True    |
-|      heart_disease | Chi-square | 90.259561 | 2.088785e-21    |       True   |
-|       ever_married | Chi-square|  58.923890 | 1.638902e-14    |       True   |
-|          work_type | Chi-square|  49.163512 | 5.397708e-10    |       True   |
-|     residence_type | Chi-square|   1.081637 | 2.983317e-01    |      False   |
-| smoking_status|  Chi-square  |29.147269   |2.085400e-06       |        True    |
+![alt text](Images/hypothesis_test_results.png)
 
 
 The only two features that did not have any significant impact on the occurence of a stroke were
@@ -138,13 +128,15 @@ Individuals working in the private sector show the highest occurence of stroke a
 
 We have an equal distribution of both genders in our dataset. A balanced feature is always good to have.
 
+![alt text](Images/bmi_distribution.png)
+
 ![alt text](Images/bmi_distribution_mean_vs_median.png)
 
-In deciding whether to use Mean or Median as an imputation method, this chart shows that both perform equally well in handling missing values. However. median was selected based on the fact that they are more robust where the distribution is slightly skewed.
+ The BMI distribution is slightly skewed towards the right but overall it shows a normal distribution. In deciding whether to use Mean or Median as an imputation method, both were applied the missing BMI values and a second chart was plotted. THis is a density plot against the BMI values after imputation. It shows that both, Mean and Median perform equally well in handling missing values. However. median imputation was eventually selected based on the fact that it is more robust for slightly skewed distributions.
 
 ![alt text](Images/pairplot_numerical.png)
 
-This chart suggests that the strongest bivariate features in patients suffering from a stroke tend to be be older and higher glucose level ones. It also confirms that BMI appears less distinct between both stroke and non stroke patients.
+This pairplot chart suggests that the strongest bivariate features in patients suffering from a stroke tend to be be older and higher average glucose level ones. It also confirms that BMI appears less distinct between both stroke and non stroke patients.
 
 ---
 
@@ -193,7 +185,9 @@ Mild correlations exist between hypertension, heart disease & stroke. This sugge
 | Thursday        |  Hyperparameter Tuning and Prediction         |     Using best performance parameters for prediction    |
 | Friday          |  Streamlit and ReadME                         |            App creation, deployment and documentation   |
 
-**Project Board**
+## Project Board
+
+A snapshot of the project board midway through my capstone project.
 
 ![alt text](<Images/Project Board.jpg>)
 
@@ -338,11 +332,11 @@ Robust to noisy data: It can maintain performance even with irrelevant or correl
 
 ![alt text](Images/classfication_report_Log_Reg.png)
 
-- Accuracy: 53.8%
+- **Accuracy: 53.8%**
 
-- Stroke class (1) — Precision: 0.07, Recall: 0.73, F1-score: 0.13
+- Stroke class (1) — **Precision: 0.07, Recall: 0.73, F1-score: 0.13**
 
-- Non-stroke class (0) — Precision: 0.97, Recall: 0.53, F1-score: 0.69
+- Non-stroke class (0) — **Precision: 0.97, Recall: 0.53, F1-score: 0.69**
 
 - Insight: Captured most stroke cases (high recall) but produced many false positives (very low precision), overall performance limited by imbalance.
 
@@ -379,11 +373,11 @@ This shows the need for additional techniques (e.g., SMOTE, class weighting, or 
 
 ![alt text](Images/classification_report_rf.png)
 
-- Accuracy: 95%
+- **Accuracy: 95%**
 
-- Stroke class (1) — Precision: 0.11, Recall: 0.02, F1-score: 0.03
+- Stroke class (1) — **Precision: 0.11, Recall: 0.02, F1-score: 0.03**
 
-- Non-stroke class (0) — Precision: 0.95, Recall: 0.99, F1-score: 0.97
+- Non-stroke class (0) — **Precision: 0.95, Recall: 0.99, F1-score: 0.97**
 
 - Insight: Strong overall accuracy and excellent prediction for the majority class, but almost completely misses stroke cases (very low recall for class 1).
 
@@ -398,17 +392,17 @@ After hyperparameter tuning, the Random Forest model was optimized with:
 
 **Performance:**
 
-Accuracy: 90%, an improvement in overall reliability.
+**Accuracy: 90%**, an improvement in overall reliability.
 
 Confusion Matrix shows strong prediction for the majority class (no stroke), but the minority class (stroke) is still under-predicted:
 
 ![alt text](Images/final_confusion_matrix.png)
 
-- Stroke class (1) — Precision: 0.11, Recall: 0.16, F1-score: 0.13
+- Stroke class (1) — **Precision: 0.11, Recall: 0.16, F1-score: 0.13**
 
-- Non-stroke class (0) — Precision: 0.96, Recall: 0.94, F1-score: 0.95
+- Non-stroke class (0) — **Precision: 0.96, Recall: 0.94, F1-score: 0.95**
 
-- ROC AUC: 0.65, indicating moderate discriminatory ability between stroke and no-stroke classes.
+- **ROC AUC: 0.65**, indicating moderate discriminatory ability between stroke and no-stroke classes.
 
 ![alt text](Images/final_classification_report.png)
 
@@ -437,12 +431,12 @@ The model provides a foundation for a stroke risk prediction tool, useful for ra
 ### Content 
 
 - ChatGPT helped me rephrase my englih and sentence construction in this document.
-- ChatGPT was used to help create code, debug errors and the block I encountered while deployed Streamlit.
+- ChatGPT was used to help create code and debug errors. It alsohelped unblock deployment of my Streamlit app to the cloud, which took several hours to complete.
 - Dataset downloaded from [Kaggle](https://www.kaggle.com/datasets).
 
 ### Media
 
-- The banner used for this README was created by Microsoft co-pilot.
+- The banner used for my README document was created by Microsoft Co-Pilot.
 - All charts and visualisations were created by Python coding.
 
 ## Acknowledgements
