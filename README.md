@@ -136,7 +136,7 @@ We have a near equal distribution of both genders in our dataset. A balanced fea
 
 ![alt text](Images/pairplot_numerical.png)
 
-This pairplot chart suggests that the strongest bivariate features in patients suffering from a stroke tend to be be older and higher average glucose level ones. It also confirms that BMI appears less distinct between both stroke and non stroke patients.
+This pairplot chart suggests that the strongest bivariate features in patients suffering from a stroke tend to be older and higher average glucose level ones. It also confirms that BMI appears less distinct between both stroke and non stroke patients.
 
 ---
 
@@ -221,19 +221,48 @@ The app is a multi-paged dashboard consisting of:
 - **Model Performance** - looks into the performance of ML model and predictive capabilities.
 
 
-## Unfixed Bugs and Challenges Faced
+## Unfixed Bugs
 - I am not sure why my streamlit performance metrics are too high compared to my model. This could be an unfixed bug or probably due to the fact that streamlit inflates the performace metric as it uses the full datset not just the test set.
+
+
+---
+
+## Development Roadmap
 
 <u>**Challenges faced**</u>
 
 - Ran into major difficulty while deploying Streamlit to the cloud.
 - Ran into several bugs and issues that needed help from ChatGPT and Co-Pilot to resolve.
-- I knew from the outset that I have a challenging dataset as it was imbalanced for the target varibale stroke.
----
+- It was evident early on that the dataset would be difficult to model effectively, given the significant class imbalance in the target variable stroke, which required careful handling during preprocessing and model training.
 
-## Development Roadmap
-* What challenges did you face, and what strategies were used to overcome these challenges?
-* What new skills or tools do you plan to learn next based on your project experience? 
+<u>**What next**</u>
+
+- Improving Data
+
+ - Try a new dataset with more patient records
+ - Additional feature engineering such as:
+
+  - Age → age groups
+  - BMI → obesity categories
+  - Glucose - identify risk levels or categories
+
+- Try more powerful classifiers like:
+
+ - XHBoost
+ - LightGMB
+ - Catboost
+
+ - Improve class imbalance handling
+
+  - ADASYN
+  - SMOTEENN
+  - Borderline - SMOTE
+
+- External Validation
+
+ - Test the model on different hospital data
+ - Test it on a differnet population and/or geoographic location.
+ - Test it at different time periods.
 
 ---
 
