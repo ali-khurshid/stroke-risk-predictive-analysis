@@ -421,7 +421,7 @@ After hyperparameter tuning, the Random Forest model was optimized with:
 
 **Performance:**
 
-**Accuracy: 90%**.
+**Accuracy: 90%**
 
 Confusion Matrix shows strong prediction for the majority class (no stroke), but the minority class (stroke) is still under-predicted:
 
