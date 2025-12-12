@@ -247,7 +247,7 @@ The app is a multi-paged dashboard consisting of:
 
 - Try more powerful classifiers like:
 
-    - XHBoost
+    - XGBoost
     - LightGMB
     - Catboost
 
