@@ -273,7 +273,7 @@ The following libraries were used in my project.
 - Features such as **gender**, **work_type**, and **residence_type** showed less direct association with stroke in this dataset.  
 - The results suggest that **health indicators** (age, glucose level, BMI, hypertension, heart disease) are the most critical factors to monitor for stroke risk.  
 - These insights can guide targeted preventive measures and form the basis for further predictive modeling of stroke risk.
--However, given the low success is predicting a stroke, this model needs further investigation, evaluation and testing using more advanced classifiers and tools. 
+- However, given the low success is predicting a stroke, this model needs further investigation, evaluation and testing using more advanced classifiers and tools. 
 
 **Machine Learning Findings**
 
