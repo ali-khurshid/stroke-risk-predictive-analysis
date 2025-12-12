@@ -126,7 +126,7 @@ Individuals working in the private sector show the highest occurence of stroke a
 
 ![alt text](Images/gender_distribution.png)
 
-We have an equal distribution of both genders in our dataset. A balanced feature is always good to have.
+We have a near equal distribution of both genders in our dataset. A balanced feature is always good to have.
 
 ![alt text](Images/bmi_distribution.png)
 
