@@ -229,40 +229,39 @@ The app is a multi-paged dashboard consisting of:
 
 ## Development Roadmap
 
-<u>**Challenges faced**</u>
+<u>**Challenges Faced**</u>
 
 - Ran into major difficulty while deploying Streamlit to the cloud.
 - Ran into several bugs and issues that needed help from ChatGPT and Co-Pilot to resolve.
 - It was evident early on that the dataset would be difficult to model effectively, given the significant class imbalance in the target variable stroke, which required careful handling during preprocessing and model training.
 
-<u>**What next**</u>
+<u>**What Next**</u>
 
 - Improving Data
+    - Try a new dataset with more patient records
+    - Additional feature engineering such as:
 
- - Try a new dataset with more patient records
- - Additional feature engineering such as:
-
-  - Age → age groups
-  - BMI → obesity categories
-  - Glucose - identify risk levels or categories
+    - Age → age groups
+    - BMI → obesity categories
+    - Glucose - identify risk levels or categories
 
 - Try more powerful classifiers like:
 
- - XHBoost
- - LightGMB
- - Catboost
+    - XHBoost
+    - LightGMB
+    - Catboost
 
  - Improve class imbalance handling
 
-  - ADASYN
-  - SMOTEENN
-  - Borderline - SMOTE
+    - ADASYN
+    - SMOTEENN
+    - Borderline - SMOTE
 
 - External Validation
 
- - Test the model on different hospital data
- - Test it on a differnet population and/or geoographic location.
- - Test it at different time periods.
+    - Test the model on different hospital data
+    - Test it on a differnet population and/or geoographic location.
+    - Test it at different time periods.
 
 ---
 
